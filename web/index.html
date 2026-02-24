@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Buscador de películas - Encuentra tus películas favoritas">
+    <title>🎬 Buscador de Películas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- Loader inicial -->
+    <div id="loader">
+        <div class="loader-spinner"></div>
+        <p class="loader-text">Cargando películas...</p>
+    </div>
+
+    <!-- Contenido principal -->
+    <div id="mainContent" style="display: none;">
+        <!-- Header -->
+        <header>
+            <div class="header-content">
+                <h1>🎬 Buscador de Películas</h1>
+                <p class="subtitle">Explora y descubre películas increíbles</p>
+
+                <!-- Barra de búsqueda -->
+                <div id="searchBarContainer"></div>
+
+                <!-- Panel de filtros -->
+                <div id="filterPanelContainer"></div>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main>
+            <div class="results-header">
+                <p id="resultsCount">Cargando películas...</p>
+            </div>
+
+            <!-- Grid de películas -->
+            <div id="moviesGrid"></div>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>🎥 Buscador de Películas &copy; 2026 | Datos de The Movie Database (TMDb)</p>
+        </footer>
+    </div>
+
+    <!-- Scripts - usando módulos ES6 -->
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>
