@@ -11,7 +11,7 @@ import ast
 import numpy as np
 import pandas as pd
 
-from src.data import NUM_GENRES, FAVORABLE_THRESHOLD
+from src.data import FAVORABLE_THRESHOLD
 
 NUM_NEIGHBORS = 50
 

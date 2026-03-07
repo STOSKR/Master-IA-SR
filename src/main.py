@@ -2,17 +2,13 @@
 Interfaz CLI del Sistema Recomendador de Películas.
 """
 
-import sys
-from pathlib import Path
-
 import pandas as pd
 
 from src.data import (
     NUM_GENRES, load_genres, load_profiles, save_profiles,
     preprocess, create_new_user_profile, PROCESSED_DIR, PROFILES_PATH,
-    compute_preference_vector,
 )
-from src.content_based import recommend_content_based, select_top_preferences
+from src.content_based import recommend_content_based
 from src.collaborative import (
     recommend_collaborative, compute_neighbors, compute_all_neighbors,
 )
