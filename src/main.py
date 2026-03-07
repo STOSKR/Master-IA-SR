@@ -76,7 +76,7 @@ def display_user_profile(profile: dict, gnames: dict[int, str]):
 # Registro de nuevo usuario
 # ---------------------------------------------------------------------------
 
-def register_new_user(profiles: dict, catalog: pd.DataFrame) -> dict:
+def register_new_user(profiles: dict, catalog: pd.DataFrame) -> dict | None:
     """
     Registra un nuevo usuario pidiéndole sus preferencias por género.
     Escala 0-5 estrellas, se convierte a 0-100.
@@ -101,8 +101,11 @@ def register_new_user(profiles: dict, catalog: pd.DataFrame) -> dict:
                     preferences[g] = round((val / 5.0) * 100, 1)
                     break
                 print("      Introduce un valor entre 0 y 5.")
-            except (ValueError, EOFError):
+            except ValueError:
                 print("      Valor no válido. Introduce un número entre 0 y 5.")
+            except EOFError:
+                print("\n      Registro cancelado.")
+                return None
 
     profile = create_new_user_profile(new_id, preferences)
 
