@@ -21,7 +21,7 @@ def _pearson_correlation(v1: list[float], v2: list[float]) -> float:
     a = np.array(v1, dtype=float)
     b = np.array(v2, dtype=float)
 
-    if np.std(a) == 0 or np.std(b) == 0:
+    if np.std(a) < 1e-10 or np.std(b) < 1e-10:
         return 0.0
 
     corr = np.corrcoef(a, b)[0, 1]
@@ -71,7 +71,7 @@ def compute_all_neighbors(profiles: dict, n_neighbors: int = NUM_NEIGHBORS) -> d
     # Normalizar filas (restar media, dividir por std)
     means = pref_matrix.mean(axis=1, keepdims=True)
     stds = pref_matrix.std(axis=1, keepdims=True)
-    stds[stds == 0] = 1  # evitar división por cero
+    stds[stds < 1e-10] = 1  # evitar división por cero
     normalized = (pref_matrix - means) / stds
 
     # Matriz de correlación: (normalized @ normalized.T) / n_cols

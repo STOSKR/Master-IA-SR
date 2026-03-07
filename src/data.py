@@ -130,9 +130,8 @@ def compute_preference_vector(user_ratings: pd.DataFrame, movies: pd.DataFrame) 
     genre_ratings: dict[int, list[float]] = {g: [] for g in range(NUM_GENRES)}
     for _, row in favorable.iterrows():
         genres = movie_genres.get(row["movieId"], [])
-        if isinstance(genres, list):
-            for g in genres:
-                genre_ratings[g].append(row["rating"])
+        for g in genres:
+            genre_ratings[g].append(row["rating"])
 
     for g in range(NUM_GENRES):
         if genre_ratings[g]:

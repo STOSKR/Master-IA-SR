@@ -115,7 +115,7 @@ def recommend_content_based(user_profile: dict, catalog: pd.DataFrame,
     df = catalog.copy()
     df["generos_internos"] = df["generos_internos"].apply(_parse_list_column)
     df["keywords_list"] = df["keywords_list"].apply(
-        lambda x: _parse_list_column(x) if pd.notna(x) else []
+        lambda x: _parse_list_column(x) if isinstance(x, (str, list)) else []
     )
 
     # 2. Filtrar películas que tengan al menos un género seleccionado
